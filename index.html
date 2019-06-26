@@ -4,14 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./stylesheet.css">
   <title>Stamp</title>
 </head>
 <body>
-  <div class="navbar">
-      <a>About</a>
-      <a>Integrations</a>
-      <a>Pricing</a>
-      <a>Contacts</a>
+  <div class="container">
+    <div class="stamp-app">
+    <div class="nav nav-top">
+      <img class="company-logo" src="./assets/logo.svg"/>
+      <div class="nav-top-links hidden">
+        <a class="nav-top-link" href="#">About</a>
+        <a class="nav-top-link" href="#">Integrations</a>
+        <a class="nav-top-link" href="#">Pricing</a>
+        <a class="nav-top-link" href="#">Contacts</a>
+      </div>
+      <div class="nav-burger-menu">
+        <img class="burger-menu-icon" src="./assets/menu.svg" />
+      </div>
     </div>
+    <div class="mobile-dropdown-links hidden">
+        <a class="mobile-dropdown-link mobile-dropdown-link-about" href="#">About</a>
+        <a class="mobile-dropdown-link mobile-dropdown-link-integrations" href="#">Integrations</a>
+        <a class="mobile-dropdown-link mobile-dropdown-link-pricing" href="#">Pricing</a>
+        <a class="mobile-dropdown-link mobile-dropdown-link-contacts" href="#">Contacts</a>
+    </div>
+    <div class="main-content">
+      <div class="main-content-info">
+        <h1 class="main-content-info-header">Simple Way to Organize Your Inspirations</h1>
+        <p class="main-content-info-subheader">I think what motivates people is not great hate, but great love for other people.</p>
+      </div>
+      <div class="signup">
+        <h4 class="signup-header">SIGN UP FOR FREE</h4>
+        <form class="signup-form">
+          <input
+            class="form-input form-input-name"
+            type="text"
+            name="name"
+            placeholder="Name"
+            maxlength="50"
+          />
+          <input
+            class="form-input form-input-email"
+            type="email"
+            placeholder="E-mail"
+            maxlength="50"
+          />
+          <input
+            class="form-input form-input-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            maxlength="50"
+            />
+          <button
+            class="form-submit"
+            type="submit"
+          >
+            Sign up >
+          </button>
+        </form>
+        <div class="form-terms-of-service">
+          <span class="form-terms-of-service-message">By clicking "Sign up" I agree to our</span>
+          <a class="form-terms-of-service-link"href="#">Terms of Service.</a>
+        </div>
+      </div>
+      </div>
+      <div class="nav nav-footer">
+        <div class="copyright">© 2016 Stamp. All Rights Reserved</div>
+        <div class="nav-footer-links">
+            <a class="nav-footer-link" href="#">CONTACT</a>
+            <a class="nav-footer-link" href="#">HELP</a>
+            <a class="nav-footer-link" href="#">TERMS OF USE</a>
+            <a class="nav-footer-link" href="#">PRIVACY POLICY</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  const burgerMenu = document.querySelector('.burger-menu-icon');
+  const navTopLinks = document.querySelector('.nav-top-links');
+  const mobileDropdownLinks = document.querySelector('.mobile-dropdown-links');
+  const width = window.innerWidth;
+
+  const checkForMobile = () => {
+    if (width >= 600) {
+      navTopLinks.classList.add('visible');
+    }
+  };
+
+  window.addEventListener('load', checkForMobile);
+
+  burgerMenu.addEventListener('click', () => {
+    console.log(width);
+    if (width <= 600 && !mobileDropdownLinks.classList.contains('mobile-visible')) {
+      mobileDropdownLinks.classList.add('mobile-visible');
+    } else {
+      mobileDropdownLinks.classList.remove('mobile-visible');
+    }
+  });
+  </script>
 </body>
 </html>
